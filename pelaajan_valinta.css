@@ -1,0 +1,73 @@
+form{
+    background-color: gray;
+    overflow: auto;
+    width: 300px;
+    height: 170px;
+    margin: 200px auto 0;
+
+}
+label{
+    font-family: Helvetica;
+    font-size: 23px;
+    position: relitive;
+    display: inline-block;
+}
+input[type="text"]{
+    position: relative;
+    display: inline-block;
+    top: 10px;
+    padding: 10px 10px 10px 10px;
+}
+.input-laatikko{
+    width: 75%;
+    position: relative;
+    margin: 20px auto -25px;
+
+}
+input[id="nimi"]{
+    width: 91%;
+    margin-bottom: 20px;
+}
+button{
+    font-family: Helvetica;
+    font-size: 20px;
+    position: relative;
+    display: inline-block;
+    width: 102%;
+    padding: 5px 5px 5px 5px;
+}
+button[id="noppa1"]{
+    margin-left: 41%;
+    margin-bottom: 5px;
+    margin-top: 40px;
+    font-family: Helvetica;
+    position: relative;
+    display: inline-block;
+    width: 18%;
+}
+button[id="noppa2"]{
+    margin-left: 41%;
+    font-family: Helvetica;
+    position: relative;
+    display: inline-block;
+    width: 18%;
+}
+.pelaajat{
+    text-align: center;
+    margin-top: 50px;
+    font-family: Helvetica;
+    font-size: 20px;
+    
+}
+button[id="pelaa"]{
+    margin-left: 41%;
+    margin-bottom: 5px;
+    margin-top: 8%;
+    background-color: green;
+    font-family: Helvetica;
+    position: relative;
+    display: inline-block;
+    width: 18%;
+    padding: 5px 5px 5px 5px;
+    font-size: 36px;
+}

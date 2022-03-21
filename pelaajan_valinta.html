@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pelaajan_valinta.css">
+    <title>pelaajan valinta</title>
+</head>
+<body>
+    <form>
+        <div class="input-laatikko">
+            <label>PELAAJAN NIMI</label>
+            <input type="text" id="nimi" size="20">
+            <button type="button" onclick="lisaaPelaaja()">LISÄÄ</button>
+        </div>
+    </form>
+    <button type="button" id="noppa1" onclick="yksNoppa()">Yhden nopan peli muoto</button>
+    <button type="button" id="noppa2" onclick="kaksNoppaa()">Kahden nopan peli muoto</button>
+    
+    <div class="pelaajat">
+        <p id="pelaaja1"></p>
+        <p id="pelaaja2"></p>
+        <p id="pelaaja3"></p>
+        <p id="pelaaja4"></p>
+    </div>
+
+    <button type="button" id="pelaa" onclick="location.href='ohjeet/ohjeet.html'">PELAAMAAN</button>
+
+    <script type="text/javascript" src="pelaajan_valinta.js"></script>
+
+    
+</body>
+</html>
