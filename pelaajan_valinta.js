@@ -6,6 +6,19 @@ id = 1;
 max = 0;
 noppa = 0;
 
+function testi(){
+    console.log(pelaajaId)
+    console.log(pelaajat)
+    console.log(noppa)
+}
+
+function Pelaa(){
+    for(i=0; i<pelaajat.length; i++){
+        document.getElementById('pelaajat' + i).innerHTML = 'ds';
+    }
+    console.log(1)
+}
+
 function lisaaPelaaja(){
     var pelaajanNimi = document.getElementById('nimi').value;
     var onkoTyhja = pelaajanNimi.length;
@@ -31,3 +44,4 @@ function yksNoppa(){
 function kaksNoppaa(){
     noppa = 2;
 }
+
