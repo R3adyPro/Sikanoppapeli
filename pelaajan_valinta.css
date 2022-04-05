@@ -63,17 +63,23 @@ button[id="noppa2"]{
     font-size: 20px;
     
 }
-button[id="pelaa"]{
-    margin-left: 41%;
-    margin-bottom: 5px;
-    margin-top: 8%;
-    background-color: green;
+button[id="lopetaVuoro"]{
+    margin-left: 92%;
+    margin-top: 39%;
     font-family: Helvetica;
-    position: relative;
+    position:fixed;
     display: inline-block;
-    width: 18%;
-    padding: 5px 5px 5px 5px;
-    font-size: 36px;
+    width: 7%;
+}
+button[id="nopanHeitto"]{
+
+    font-family: Helvetica;
+    position:fixed;
+    display: inline-block;
+    width: 7%;
+}
+.noppa:focus{
+    background-color:green;
 }
 
 
@@ -115,3 +121,15 @@ button[id="pelaa"]{
     text-decoration: none;
     cursor: pointer;
   }
+
+table.table, th, td{
+    border: 2px solid ;
+    font-size: 20px;
+}
+table {
+    margin-left: 10px;
+    margin-right: auto;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    width: 40%;
+}
