@@ -2,24 +2,86 @@ const pelaajat = [];
 const pelaajaId = [];
 let maxPelaajaa = 4
 const pisteet = [0, 0, 0, 0]
-
+const x = document.getElementById('testi').rows[1].cells;
+let piste = document.getElementById('pistemaara').value;
+let tarkistettuPiste = /^[0-9-.,]+$/.test(piste);
 
 
 id = 1;
 max = 0;
 peliMuoto = 0;
 noppa = 0;
+yht = 0;
+lopeta = 0;
+i = 0;
+cell = 0
+pistemaara = 0;
+
 
 
 function noppanNumero(){
     noppa = Math.floor(Math.random() * 6) + 1;
+    noppa2 = Math.floor(Math.random() * 6) + 1;
 }
 
 
 //Yhden nopan pelimuoto
 function Pelaa(){
-    noppanNumero();
-    document.getElementById('noppa').innerHTML = noppa;
+    if(peliMuoto == 1){
+        noppanNumero();
+        onkoVoittoa();
+        lisaapiste();
+        document.getElementById('numero').innerHTML = noppa;
+        if(noppa == 1 || lopeta == 1){
+                x[cell].innerHTML = pisteet[cell] + yht;
+                pisteet[cell] = pisteet[cell] + yht;
+                yht = 0;
+                noppa = 0;
+                lopeta = 0;
+                if(cell < 3){
+                    cell++
+                }
+                else {
+                    cell = 0;
+                }
+        }
+        else if(noppa != 1){
+            yht = yht + noppa;
+            document.getElementById('yhteen').innerHTML = yht;
+        }
+    }
+    else if(peliMuoto == 2){
+        noppanNumero();
+        onkoVoittoa();
+        document.getElementById('numero').innerHTML = noppa;
+        document.getElementById('numero2').innerHTML = noppa2;
+        if(noppa == 1 && noppa2 == 1){
+            yht = yht + 25;
+            document.getElementById('yhteen').innerHTML = yht;
+        }
+        else if(noppa == 1 || noppa2 == 1 || lopeta == 1){
+            x[cell].innerHTML = pisteet[cell] + yht;
+            pisteet[cell] = pisteet[cell] + yht;
+            yht = 0;
+            noppa = 0;
+            noppa2 = 0;
+            lopeta = 0;
+            if(cell < 3){
+                cell++
+            }
+            else {
+                cell = 0;
+            }
+        }
+        else if(noppa == noppa2){
+            yht = yht + ((noppa + noppa2)* 2);
+            document.getElementById('yhteen').innerHTML = yht;
+        }
+        else if(noppa != 1){
+            yht = yht + noppa + noppa2;
+            document.getElementById('yhteen').innerHTML = yht;
+        }
+    }
 }
 
 
@@ -49,11 +111,30 @@ function lisaaPelaaja(){
         alert('Pelaaja raja saavutettu');
     }
 }
+function lisaapiste(){
+    if(tarkistettuPiste == false){
+        alert('Vain numeroita')
+    }
+    else if(tarkistettuPiste == true){
+        pistemaara = piste
+    }
+}
+function onkoVoittoa(){
+    for(i=0; i < 4; i++){
+        if(pisteet[i] >= pistemaara){
+            console.log(pisteet)
+            alert('Pelaaja ' + pelaajat[i] + ' on voittanut pelin')
+        }
+    }
+}
 
 function yksNoppa(){
     peliMuoto = 1;
 }
 function kaksNoppaa(){
     peliMuoto = 2;
+}
+function lopetaPeli(){
+    lopeta = 1;
 }
 

@@ -46,10 +46,14 @@
             </div>
             <button type="button" class="noppa" id="noppa1" onclick="yksNoppa()">Yhden nopan peli muoto</button>
             <button type="button" class="noppa" id="noppa2" onclick="kaksNoppaa()">Kahden nopan peli muoto</button>
+            
+            <label id="piste">PISTE MÄÄRÄ</label>
+            <input type="text" id="pistemaara" size="20">
+            <button type="button" id="lisaa" onclick="lisaapiste()">LISÄÄ</button>
         </div>
     </div>
 
-    <table >
+    <table id="testi">
         <tr>
             <th><p id="pelaajat1"></p></th>
             <th><p id="pelaajat2"></p></th>
@@ -63,10 +67,12 @@
             <th><p id="pisteet4"></p></th>  
         </tr>
     </table>
-    <h1 id="noppa"></h1>
+    <h1 id="numero" class="numero"></h1>
+    <h1 id="numero2" class="numero2"></h1>
     <button type="button" id="nopanHeitto" onclick="Pelaa()">Heitä noppaa</button>
+    <h1 id="yhteen" class="yhteen"></h1>
 
-    <button type="button" id="lopetaVuoro">Lopeta Vuoro</button>
+    <button type="button" id="lopetaVuoro" onclick="lopetaPeli()">Lopeta Vuoro</button>
 
     <script type="text/javascript" src="pelaajan_valinta.js"></script>
 
