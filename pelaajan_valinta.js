@@ -3,8 +3,8 @@ const pelaajaId = [];
 let maxPelaajaa = 4
 const pisteet = [0, 0, 0, 0]
 const x = document.getElementById('testi').rows[1].cells;
-let piste = document.getElementById('pistemaara').value;
-let tarkistettuPiste = /^[0-9-.,]+$/.test(piste);
+
+
 
 
 id = 1;
@@ -16,6 +16,7 @@ lopeta = 0;
 i = 0;
 cell = 0
 pistemaara = 0;
+doubles = 0;
 
 
 
@@ -32,18 +33,29 @@ function Pelaa(){
         onkoVoittoa();
         lisaapiste();
         document.getElementById('numero').innerHTML = noppa;
-        if(noppa == 1 || lopeta == 1){
-                x[cell].innerHTML = pisteet[cell] + yht;
-                pisteet[cell] = pisteet[cell] + yht;
-                yht = 0;
-                noppa = 0;
-                lopeta = 0;
-                if(cell < 3){
-                    cell++
-                }
-                else {
-                    cell = 0;
-                }
+        if(lopeta == 1){
+            x[cell].innerHTML = pisteet[cell] + yht;
+            pisteet[cell] = pisteet[cell] + yht;
+            yht = 0;
+            noppa = 0;
+            lopeta = 0;
+            if(cell < (max-1)){
+                cell++
+            }
+            else {
+                cell = 0;
+            }
+        }
+        else if(noppa == 1){
+            yht = 0;
+            noppa = 0;
+            lopeta = 0;
+            if(cell < (max-1)){
+                cell++
+            }
+            else {
+                cell = 0;
+            }
         }
         else if(noppa != 1){
             yht = yht + noppa;
@@ -53,6 +65,7 @@ function Pelaa(){
     else if(peliMuoto == 2){
         noppanNumero();
         onkoVoittoa();
+        lisaapiste();
         document.getElementById('numero').innerHTML = noppa;
         document.getElementById('numero2').innerHTML = noppa2;
         if(noppa == 1 && noppa2 == 1){
@@ -66,7 +79,8 @@ function Pelaa(){
             noppa = 0;
             noppa2 = 0;
             lopeta = 0;
-            if(cell < 3){
+            doubles = 0;
+            if(cell < max -1){
                 cell++
             }
             else {
@@ -76,10 +90,15 @@ function Pelaa(){
         else if(noppa == noppa2){
             yht = yht + ((noppa + noppa2)* 2);
             document.getElementById('yhteen').innerHTML = yht;
+            doubles = doubles + 1;
         }
-        else if(noppa != 1){
+        else if(noppa != 1 || noppa2 != 1){
             yht = yht + noppa + noppa2;
             document.getElementById('yhteen').innerHTML = yht;
+            doubles = 0;
+        }
+        else if(doubles = 3){
+            doubles = 0;
         }
     }
 }
@@ -88,7 +107,7 @@ function Pelaa(){
 //Pelaajien valinta ja pelimuodon valinta
 function Pelaajat(){
     p = 1;
-    for(i=0; i<pelaajat.length; i++){
+    for(i=0; i<max; i++){
         document.getElementById('pelaajat' + p).innerHTML = pelaajat[i];
         document.getElementById('pisteet' + p).innerHTML = pisteet[i];
         p++;
@@ -111,7 +130,10 @@ function lisaaPelaaja(){
         alert('Pelaaja raja saavutettu');
     }
 }
+
 function lisaapiste(){
+    let piste = document.getElementById('pistemaara').value;
+    let tarkistettuPiste =  /^[0-9-.,]+$/.test(piste);
     if(tarkistettuPiste == false){
         alert('Vain numeroita')
     }
@@ -119,6 +141,7 @@ function lisaapiste(){
         pistemaara = piste
     }
 }
+
 function onkoVoittoa(){
     for(i=0; i < 4; i++){
         if(pisteet[i] >= pistemaara){
