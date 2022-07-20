@@ -29,9 +29,11 @@ function noppanNumero(){
 //Yhden nopan pelimuoto
 function Pelaa(){
     if(peliMuoto == 1){
+        Pois();
         noppanNumero();
         onkoVoittoa();
         lisaapiste();
+        console.log(cell)
         document.getElementById('numero').innerHTML = noppa;
         if(lopeta == 1){
             x[cell].innerHTML = pisteet[cell] + yht;
@@ -45,6 +47,7 @@ function Pelaa(){
             else {
                 cell = 0;
             }
+            document.getElementById("heittaja").innerHTML = "Pelaajan " + pelaajat[cell] + " vuoro!"
         }
         else if(noppa == 1){
             yht = 0;
@@ -56,6 +59,7 @@ function Pelaa(){
             else {
                 cell = 0;
             }
+            document.getElementById("heittaja").innerHTML = "Pelaajan " + pelaajat[cell] + " vuoro!"
         }
         else if(noppa != 1){
             yht = yht + noppa;
@@ -86,6 +90,7 @@ function Pelaa(){
             else {
                 cell = 0;
             }
+            document.getElementById("heittaja").innerHTML = "Pelaajan " + pelaajat[cell] + " vuoro!"
         }
         else if(noppa == noppa2){
             yht = yht + ((noppa + noppa2)* 2);
@@ -130,6 +135,10 @@ function lisaaPelaaja(){
         alert('Pelaaja raja saavutettu');
     }
 }
+function Pois(){
+    document.getElementById('heittaja').innerHTML = '';
+}
+
 
 function lisaapiste(){
     let piste = document.getElementById('pistemaara').value;
